@@ -1,49 +1,77 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Style.css'
-import pga from '../assets/Images/progaming.png'
-import ebook from '../assets/Images/ebook.png'
-import barca from '../assets/Images/barca blog.png'
 import NavBar from '../components/NavBar'
 import MenuBox from '../components/MenuBox'
+import SideBar from '../components/SideBar'
+import ReactSection from '../components/ReactSection'
+import UIUXSection from '../components/UIUXSection'
+import OthersSection from '../components/OthersSection'
+import SectionButton from '../components/SectionButton'
+import { motion } from 'framer-motion'
 
 const ProjectPage = () => {
+
+  const [ activePage, setActivePage ] = useState('react-section');
+
+  const handleActivePage = (page) => {
+    setActivePage(page)
+  }
+
+  const [isLoaded, setIsLoaded] = useState(false);
+    
+      useEffect(() => {
+      setIsLoaded(true);
+      }, []);
+    
+       const backgroundVariants = {
+      initial: { x: 0 },
+      animate: {
+        x: '-100vw',
+        transition: {
+        duration: 1,
+        ease: 'easeInOut'
+        }
+      }
+       };
+    
+	   const contentVarient = {
+		initial: { x: '100vw' },
+		animate: {
+		  x: 0,
+		  transition: {
+			duration: 1,
+			ease: 'easeInOut'
+		  }
+		}
+	   }
+  
+
   return (
-    <>
+    <div style={{position: 'relative', overflow: 'hidden'}}>
+                        <motion.div className='mask-animation'
+         variants={backgroundVariants}
+         initial="initial"
+         animate={isLoaded ? "animate" : "initial"}
+        >
+        <h1>projects</h1>
+        </motion.div>
+    <motion.div className="project-page"
+    variants={contentVarient}
+     initial="initial"
+    animate={isLoaded ? "animate" : "initial"}
+    >
+      <SideBar/>
     <NavBar />
     <MenuBox />
-    <div className="project-page">
-    <div className="project-wrap">
-      <img src={barca} alt="" />
-      <div className="project-info">
-      <h2>Barca Blog</h2>
-			<hr />
-			<p>Barca blog is a web app built to provide users with personalized updates, stats and insights on FC Barcelona. It features includes a home page with easy navigation, a "News and update" page which is dedicated to sharing breaking news, transfer rumors, injury updates, and exclusive interviews with players and coaches. It also includes a "Standings" page to Keep track of Barca's position in the league and other competitions, other page like statistics and fixture pages are also available</p>
-			<hr />
-			<p>React JS</p>
-      </div>
+    <SectionButton handleActivePage={handleActivePage} activePage={activePage}/>
+    <div className='projectpage-content'>
+      {activePage === 'react-section' && <ReactSection/>}
+      {activePage === 'uiux-section' && <UIUXSection/>}
+      {activePage === 'others-section' && <OthersSection/>}
     </div>
-      <div className="project-wrap">
-        <img src={ pga } />
-        <div className="project-info">
-            <h2>Game Registration website</h2>
-            <hr />
-            <p>This is a web-based registeration platform designed for gamers to sign up, form teams, and participate in competitions. The application features a responsive sidebar, a homepage, an about page, and a contact dropdown menu enabling users to communicate with administrators. Additionally, the platform includes data entry sections where users can input their information.</p>
-            <hr/>
-            <p>HTML, CSS, Javascript</p>
-            </div>
-      </div>
-      <div className="project-wrap">
-          <img src={ ebook } alt="project 2" />	
-          <div className="project-info">				
-                <h2>E-Library Website</h2>
-                  <hr></hr>
-                  <p>This is a digital library platform designed to catalog and provide access to a diverse collection of e-books across various genres. The platform boasts an intuitive users interface with seamless navigation, comprising a secure login page, a dynamic home page with easy navigation menus, and a footer section displaying contact information. Key features include a search bar, a genre-based filtering system, enabling users to discover books by category, and a blog webpage dedicated to sharing the latest news and updates from the world of digital publishing.</p>
-                  <hr></hr>
-                  <p>HTML, CSS, Javascript</p>
-            </div>
-        </div>
+    </motion.div>
     </div>
-    </>
+
   )
 }
 

@@ -1,27 +1,34 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../assets/Images/logo1.png'
+import React, { useEffect, useState } from 'react'
+import '../App.css'
+import logo from '/renova logo.png'
+import MenuButton from './MenuButton'
 
 const NavBar = () => {
 
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    section.scrollIntoView({ behavior: 'smooth'});
+    const [scrolled, setScrolled] = useState(false);
+  
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
+  
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return() => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
 
   return (
     <div>
-        <nav className="nav-bar">
+        <nav className={`nav-bar ${scrolled ? 'colored' : ''}`}>
           <div className="nav-logo">
             <img src={logo} alt="" />
           </div>
-            <ul>
-              <Link to="/"><li>Home</li></Link>
-              <Link to="/Projects"><li>Projects</li></Link>
-              <Link to="/about"><li>About</li></Link>
-              <Link to="/contact"><li>Contact</li></Link>
-              <button onClick={() => scrollToSection('service')}><Link to="/"><li>Services</li></Link></button>
-            </ul>
+          <MenuButton/>
         </nav>
     </div>
   )

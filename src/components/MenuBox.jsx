@@ -1,57 +1,82 @@
-import React, {useState, useEffect} from 'react'
-import img from '../assets/Images/menu1.png'
+import React, { useState} from 'react'
 import { Link } from 'react-router-dom'
+import projects from '../assets/Images/projects.png'
+import about from '../assets/Images/about.png'
+import contact from '../assets/Images/contact-us.png'
+import services from '../assets/Images/services.png'
+import home from '../assets/Images/homeicon.png'
+import { delay, motion } from 'framer-motion'
+
+const variants = {
+	open: {
+		width: "100%",
+		height: "100%",
+		opacity: 1
+	},
+	closed: {
+		width: 0,
+		height: 0,
+		opacity: 0
+	}
+}
+
+const perspective = {
+	initial: {
+		opacity: 0,
+	},
+	enter: {
+		opacity: 1,
+		transition: {delay: 1},
+	},
+	exit: {
+		opacity: 0
+	}
+}
 
 const MenuBox = () => {
-	const [dropdownMenu, setDropdownMenu] = useState(false);
 
-	const handleDropdown = () => {
-		setDropdownMenu(! dropdownMenu);
-	}
-
-	const [theme, setTheme] = useState('dark');
-	const [clicked, setClicked] = useState(false);
-		  
-	useEffect (() => {
-	  document.body.classList.toggle('light', theme === 'light');
-	}, [theme]);
-  
-	const toggleTheme = () => {
-	  setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
-
-  const handleColor = () => {
-	setClicked(! clicked)
-  }
-
-  const scrollToSection = (id) => {
-	const section = document.getElementById(id);
-	section.scrollIntoView({ behavior: 'smooth'});
-  };
+  const [isActive, setIsActive] = useState(false);
 
   return (
       <div className="menu">
 	<ul>
-<li><button className="menu-button" onClick={handleDropdown}><img src={ img } /></button>
-		<ul className={ `dropdown ${dropdownMenu ? 'show' : 'hide'}`}>
-			<Link to="/"><li>Home</li></Link>
-			<hr></hr>
-			<Link to="/Projects"><li>projects</li></Link>
-			<hr></hr>
-			<Link to="/about"><li>About</li></Link>
-			<hr></hr>
-			<Link to="/contact"><li>Contact</li></Link>
-			<hr></hr>
-			<Link to="/"><button onClick={() => scrollToSection('service')}><li>Services</li></button></Link>
-			<hr />
-			<div className={`theme-change ${theme}`}>
-          <button className="toggle-button" onClick={toggleTheme} onMouseDown={handleColor} style={{backgroundColor: clicked ? 'white' : 'rgba(255, 255, 255, 0.51)'}}>
-          <svg className="sun-icon">
-            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-          </button>
-        </div>
-		</ul>
+<li><button className="menu-button" onClick={() => {setIsActive(!isActive)}}>
+	<motion.div
+	className='menu-slider'
+	animate={{top: isActive ? "-100%" : "0"}}
+	transition={{duration: 0.5, ease: [0.75, 0, 0.24, 1]}}
+	>
+		<div className='menu-el'>
+			<p>Menu</p>
+		</div>
+		<div className='menu-el'>
+			<p>Close</p>
+		</div>
+	</motion.div>
+	
+</button>
+		<motion.div
+		className="dropdown"
+			variants={variants}
+			animate={isActive ? "open" : "closed"}
+			initial="closed"
+		>
+			<motion.div
+				variants={perspective}
+				transition={{delay: 1}}
+				animate="enter"
+				exit="exit"
+				initial="initial"
+				className='dropdown-link'
+			>
+				<div><Link to="/"><img src={home} alt="" />Home</Link></div>
+				<div><Link to="/Projects"><img src={projects} alt="" />projects</Link></div>
+				<div><Link to="/about"><img src={about} alt="" />About</Link></div>
+				<div><Link to="/contact"><img src={contact} alt="" />Contact</Link></div>
+				<div><Link to="/services"><img src={services} alt="" />Services</Link></div>
+			</motion.div>	
+		</motion.div>
+		
 	</li>
 	</ul>
 </div>

@@ -1,36 +1,77 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import '../App.css'
 import { Link } from 'react-router-dom'
-import pga from '../assets/Images/progaming.png'
-import barca from '../assets/Images/barca blog.png'
+import icon from '../assets/Images/right.png'
+import { projects } from './ProjectData'
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+
 
 const Projects = () => {
+
+  const imgRefs = useRef([]);
+  const pRefs = useRef([]);
+
+useEffect(() => {
+  const callback = (entries) => {
+    entries.forEach(entry => {
+      if (!entry.target) return;
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible");
+      }
+    });
+  };
+  const observer = new window.IntersectionObserver(callback, { threshold: 0.2 });
+
+  imgRefs.current.forEach(ref => ref && observer.observe(ref));
+  pRefs.current.forEach(ref => ref && observer.observe(ref));
+
+  return () => observer.disconnect();
+}, []);
+
   return (
-	<>
-    <section className="my-project">
-			<h1 className="project-header">My recent projects</h1>
-		<div id="projects">
-		<div className="project">
-			<img src={barca} alt="" />
-			<h2>Barca Blog</h2>
-			<hr />
-			<p>Barca blog is a web app built to provide users with personalized updates, stats and insights on FC Barcelona. It features includes a home page with easy navigation, a "News and update" page which is dedicated to sharing breaking news, transfer rumors, injury updates, and exclusive interviews with players and coaches. It also includes a "Standings" page to Keep track of Barca's position in the league and other competitions, other page like statistics and fixture pages are also available</p>
-			<hr />
-			<p>React JS</p>
-		</div>
-			<div className="project">
-				<img src={ pga } />
-				<h2>Game Registration website</h2>
-				<hr></hr>
-				<p>This is a web-based registeration platform designed for gamers to sign up, form teams, and participate in competitions. The application features a responsive sidebar, a homepage, an about page, and a contact dropdown menu enabling users to communicate with administrators. Additionally, the platform includes data entry sections where users can input their information.</p>
-				<hr></hr>
-				<p>HTML, CSS, Javascript</p>
+    <section className="project">
+      <h1>Recent Projects</h1>
+      <div className="project-content">
+        <div className="project-left">
+          {projects.map((project, i) => (
+			<div className='project-image' key={i} ref={el => imgRefs.current[i] = el}>
+            <img
+			className='project-design'
+              
+              src={project.image}
+              alt=""
+              
+            />
 			</div>
-			</div>
-			<button className="view-more"><Link to="/Projects">View More</Link></button>
-		</section>
-		<hr className="page-divide" />
-		</>
+          ))}
+        </div>
+        <div className="project-right">
+            {projects.map((project, i) => (
+          <div className="project-text"
+              key={i}
+              ref={el => pRefs.current[i] = el}
+          >
+            <h2 style={{color: 'white'}}>
+              {project.title}
+            </h2>
+            <p style={{color: 'white'}}><span>Description: </span>
+              {project.description}
+            </p>
+            <p style={{color: 'white'}}><span>Dev-tools: </span>
+              {project.devtools}
+            </p>
+          </div>
+          ))}
+      </div>
+	  </div>
+      <button className="view-more">
+        <Link to="/Projects">View More</Link>
+        <img src={icon} alt="" />
+      </button>
+    </section>
   )
 }
 

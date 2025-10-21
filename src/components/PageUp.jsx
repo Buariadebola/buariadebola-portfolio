@@ -1,6 +1,6 @@
 import React from 'react'
 import '../App.css'
-import img from '../assets/Images/right.png'
+import img from '../assets/Images/down.png'
 
 const PageUp = () => {
 
@@ -11,7 +11,7 @@ const PageUp = () => {
     };
 
   return (
-<button className="page-up" onClick={() => scrollToSection('head-section')}>
+<button className="page-up" onClick={() => scrollToSection('hero')}>
     <img src={ img } />
 </button>
   )
