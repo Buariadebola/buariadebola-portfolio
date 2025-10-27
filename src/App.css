@@ -733,10 +733,29 @@ body{
 	transform: scale(1.05);
 }
 @media only screen and (max-width:768px) {
+	.project-left{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 50px;
+	width: 50%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 0;
+	border-right: 2px solid blue;
+	height: auto;
+}
 	.project-left .project-design{
 	width: 100%;
 	padding: 40px 0;
 	height: auto;
+}
+.project-right{
+	gap: 0px;
+}
+.project-text{
+	padding: 0;
+	height: 250px;
 }
 .project-image{
 	position: relative;
