@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import '../App.css'
 import { Link } from 'react-router-dom'
-import icon from '../assets/Images/right.png'
 import { projects } from './ProjectData'
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
@@ -69,7 +68,6 @@ useEffect(() => {
 	  </div>
       <button className="view-more">
         <Link to="/Projects">View More</Link>
-        <img src={icon} alt="" />
       </button>
     </section>
   )

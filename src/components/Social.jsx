@@ -31,7 +31,7 @@ const Social = () => {
 			<div className="my-info" style={{color: 'white'}}>
 				<h2>Contact info</h2>
 				<p>+234 913 621 7111</p>
-				<p>buariadebolagmail.com</p>
+				<p>buariadebola@gmail.com</p>
 				<p>Gbagada phase 2, Lagos</p>
 			</div>
 			

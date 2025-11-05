@@ -73,7 +73,7 @@ const ContactPage = () => {
                 <br />
                 <textarea id="message" type="text" placeholder="Send a message..." name="message"/>
                 <br />
-                {error && <div className='error-msg'><FaExclamationTriangle className='notice-icon' style={{marginRight: '5px'}}/> Failed to send message</div>}
+                {error && <div className='error-msg'>Failed to send message</div>}
                 <button type="submit">Send</button>
             </form>
         </div>

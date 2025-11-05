@@ -865,6 +865,7 @@ padding: 20px 0;
 	border-radius: 20px;
 	color: white;
 	margin: 0;
+	opacity: 0.8;
 }
 .socials p:hover{
 	border: 1px solid blue;
@@ -894,6 +895,7 @@ padding: 20px 0;
 .mid-footer .footer-links a{
 	color: white;
 	text-decoration: none;
+	opacity: 0.8;
 }
 .mid-footer .footer-links a:hover{
 	color: blue;
@@ -904,6 +906,10 @@ padding: 20px 0;
 	justify-content: center;
 	align-items: center;
 	width: 50%;
+}
+.mid-footer .my-info p{
+	opacity: 0.8;
+	cursor: pointer;
 }
 @media only screen and (max-width: 768px){
 	.socials p{
@@ -1396,4 +1402,15 @@ svg{
 	left: 0;
 	position: fixed;
 	pointer-events: none;
+}
+
+.loader{
+    height: 100px;
+    width: 100px;
+    background-color: transparent;
+    border-radius: 50%;
+    border-top: 2px solid blue;
+    border-right: 2px solid blue;
+    animation: hero-loader 1s ease-in infinite;
+	z-index: 99;
 }

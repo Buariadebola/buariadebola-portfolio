@@ -36,7 +36,7 @@
 	color: white;
 }
 .projectpage-content{
-	padding-top: 20px;
+	padding: 20px 0;
 }
 .project-page h5{
     color: var(--secondary-color);
@@ -91,9 +91,9 @@
 	display: none;
 }
 .project-info button{
-	border: 2px solid white;
-	background-color: blue;
-	color: white;
+	border: 0.5px solid rgba(255, 255, 255, 0.71);
+	background-color: rgba(0, 0, 255, 0.781);
+	color: rgba(255, 255, 255, 0.938);
 	position: absolute;
 	cursor: pointer;
 	font-size: 10px;
@@ -206,17 +206,21 @@
 .contacts{
 	margin-top: 50px;
 	display: flex;
-	gap: 50px;
-	padding: 20px;
+	gap: 200px;
+	justify-content: center;
 }
 .contact-form{
 	width: 35vw;
-	border: 1px solid rgba(255, 255, 255, 0.493);
+	border: 0;
 	border-radius: 10px;
-	background-color: #212121;
+	background-color: rgba(0, 0, 255, 0.158);
 	margin: 0 auto;
 	padding: 20px;
 	animation: openup 1.5s ease-in-out;
+	transition: 0.5s;
+}
+.contact-form:hover{
+	transform: scale(1.04);
 }
 .contact-form h1 {
 	padding: 10px;
@@ -226,43 +230,46 @@
 	text-align: center;
 }
 .contact-form input{
-	color: white;
-	font-size: 18px;
+	color: rgba(255, 255, 255, 0.868);
+	font-size: 15px;
 	width: 90%;
+	padding: 7px 10px;
 	border: 0;
-	height: 30px;
 	border-radius: 10px;
-	background-color: #565656;
+	background-color: rgba(0, 0, 255, 0.342);
+	outline: 0;
 }
 .contact-form textarea{
-	color: white;
-	font-size: 18px;
+	color: rgba(255, 255, 255, 0.868);
+	font-size: 15px;
 	width: 100%;
 	border: 0;
+	padding: 7px 10px;
 	max-width: 90%;
 	min-width: 50%;
-	max-height: 90px;
+	max-height: 70px;
 	min-height: 50px;
 	border-radius: 10px;
-	background-color: #565656;
+	background-color: rgba(0, 0, 255, 0.342);
 }
 .contact-form button {
 	margin-top: 15px;
-	background-color: blue;
-	color: white;
+	background-color: rgba(0, 0, 255, 0.342);
+	color: rgba(255, 255, 255, 0.868);
 	padding: 5px;
-	width: 60px;
+	width: 100px;
 	border-radius: 10px;
-	border: 1px solid white;
+	border: 1px solid rgba(255, 255, 255, 0.589);
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	transition: 0.5s;
 }
 .contact-form button:hover {
-	background-color: rgb(0, 0, 128);
+	transform: scale(1.05);
+	box-shadow: 0px 0px 2px 2px blue;
 }
 .contact-form ::placeholder{
 	padding-left: 10px;
-	color: white;
+	color: rgba(255, 255, 255, 0.447);
 	font-size: 12px;
 }
 .contact h5{
@@ -357,12 +364,12 @@ opacity: 1;
 	line-height: 0;
 	display: inline-block;
 	border-radius: 10px;
-	border: 2px solid var(--secondary-color);
+	border: 0.5px solid rgba(255, 255, 255, 0.441);
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	width: 55%;
 	height: auto;
 	padding: 20px;
-	background-color: var(--intro-bg);
+	background-color: rgba(0, 0, 255, 0.158);
 	animation: fadein-ani 2s ease-out;
 	transition: 1s;
 }
@@ -379,6 +386,9 @@ opacity: 1;
   }
 }
 
+#intro li{
+	list-style: none;
+}
 #intro h2{
 	font-size: calc(16px + 0.6vw);
 	line-height: 1;
@@ -387,10 +397,10 @@ opacity: 1;
 #intro h4{
 	font-size: calc(10px + 0.6vw);
 	line-height: 1;
-	color: var(--footer-color);
+	color: rgba(255, 255, 255, 0.779);
 }
 #intro p{
-	color: var(--footer-color);
+	color: rgba(255, 255, 255, 0.779);
 	text-align: left;
 	line-height: 1;
 	font-size: calc(8px + 0.6vw);

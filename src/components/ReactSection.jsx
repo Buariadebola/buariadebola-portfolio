@@ -3,10 +3,31 @@ import RenovaAI from '../assets/Images/renova image.png'
 import barca from '../assets/Images/barca blog.png'
 import ebook from '../assets/Images/ebook web.png'
 import TBB from '../assets/Images/TBB image.png'
+import newspulse from '../assets/Images/news pulse image.png'
 
 const ReactSection = () => {
   return (
     <>
+                <div className="project-wrap">
+            <img src={newspulse} alt="" />
+            <div className="project-info">
+            <h2>News Pulse by Renova</h2>
+                <p>News Pulse is a modern news aggregation platform that delivers timely, reliable, and engaging stories from across the globe. The website features a sleek and contemporary layout, with a clean homepage that highlights trending headlines and categories in a visually compelling way. Users can seamlessly browse through various news sections, from technology and entertainment to politics and global affairs.</p>
+                <p>React JS</p>
+            <a href="https://github.com/Buariadebola/news-pulse"><button className='respository-btn'>View Respository</button></a>
+            <a href="https://newspulse-by-renova.vercel.app/"><button className='website-btn'>Visit Website</button></a>
+            </div>
+          </div>
+          <div className="project-wrap">
+            <img src={RenovaAI} alt="" />
+            <div className="project-info">
+            <h2>Renova AI</h2>
+                <p>Renova AI is a Chatbot platform that empowers individuals and businesses to leverage the latest advancements in artificial intelligence. The website boasts a sleek and modern design, featuring a visually appealing homepage that effectively communicates some of the platform purpose and functionality, a chat interface that incorporates seamless animations, providing a dynamic and engaging user experience.</p>
+                <p>React JS</p>
+            <a href=""><button className='respository-btn'>View Respository</button></a>
+            <a href="https://renova-ai-chatbot.vercel.app/"><button className='website-btn'>Visit Website</button></a>
+            </div>
+            </div>
             <div className="project-wrap">
             <img src={TBB} alt="" />
             <div className="project-info">
@@ -17,16 +38,6 @@ const ReactSection = () => {
             <a href="https://the-buari-blog.vercel.app/"><button className='website-btn'>Visit Website</button></a>
             </div>
           </div>
-            <div className="project-wrap">
-            <img src={RenovaAI} alt="" />
-            <div className="project-info">
-            <h2>Renova AI</h2>
-                <p>Renova AI is a Chatbot platform that empowers individuals and businesses to leverage the latest advancements in artificial intelligence. The website boasts a sleek and modern design, featuring a visually appealing homepage that effectively communicates some of the platform purpose and functionality, a chat interface that incorporates seamless animations, providing a dynamic and engaging user experience.</p>
-                <p>React JS</p>
-            <a href=""><button className='respository-btn'>View Respository</button></a>
-            <a href="https://renova-ai-chatbot.vercel.app/"><button className='website-btn'>Visit Website</button></a>
-            </div>
-            </div>
           <div className="project-wrap">
             <img src={barca} alt="" />
             <div className="project-info">
