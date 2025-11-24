@@ -1040,14 +1040,14 @@ padding: 20px 0;
 	.socials p{
 		scale: 0.8;
 	}
-	.mid-footer{
-		flex-direction: column;
+	.mid-footer .my-info p{
+		font-size: 10px;
 	}
-	.mid-footer .footer-links{
-		width: 100%;
+	.mid-footer .footer-links a{
+		font-size: 10px;
 	}
-	.mid-footer .my-info{
-		width: 100%;
+	.mid-footer h2{
+		font-size: 15px;
 	}
 }
 .contact-button{
