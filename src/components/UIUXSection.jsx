@@ -25,8 +25,8 @@ const UIUXSection = () => {
   }
   return (
     <div className='uiux-section' onMouseMove={mouseMove}>
-      {UIproject.map(({url, bgcolor}, i) => {
-        return <UIGallery mousePosition={mousePosition} url={url} bgcolor={bgcolor} key={i}/>
+      {UIproject.map(({url, bgcolor, img}, i) => {
+        return <UIGallery mousePosition={mousePosition} url={url} img={img} bgcolor={bgcolor} key={i}/>
       })}
       
     </div>

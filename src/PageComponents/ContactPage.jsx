@@ -62,7 +62,7 @@ const ContactPage = () => {
                 <p>You can also send me a direct message with the aid of the form below, and i'll get back to you as soon as i can. </p>
             </div>
             <div className="contacts">
-        <div>
+        <div className='contact-left'>
             <form className="contact-form" ref={form} onSubmit={sendEmail}>
                 <h1>DIRECT MESSAGE</h1>
                 <input type="text" name="name" placeholder="input your name..." />

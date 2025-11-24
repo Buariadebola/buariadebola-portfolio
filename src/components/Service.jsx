@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../App.css'
 import { useScroll, useTransform } from 'framer-motion';
 import { motion } from 'framer-motion';
@@ -11,11 +11,28 @@ export default function Service() {
     target: container,
     effect: ["start start", "end end"]
   })
+
+    const [fadeSlide, setFadeSlide] = useState(false);
+
+  const handleSlide = () => {
+    const slideTop = document.querySelector('.service').getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (slideTop < windowHeight * 0.8) {
+      setFadeSlide(true);
+  } else {
+    setFadeSlide(false);
+  }
+  }
+
+    useEffect(() => {
+      window.addEventListener('scroll', handleSlide);
+      return () => window.removeEventListener('scroll', handleSlide)
+    }, []);
   
 
     return (
     <>
-    <div className="service" id='service' ref={container}>
+    <div className={`service ${fadeSlide ? 'active' : ''}`} id='service' ref={container}>
         <Service1 scrollYProgress={scrollYProgress}/>
         <Service2 scrollYProgress={scrollYProgress}/>
         <Service3 scrollYProgress={scrollYProgress}/>

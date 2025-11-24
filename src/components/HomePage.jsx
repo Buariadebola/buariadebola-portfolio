@@ -8,6 +8,7 @@ import Social from './Social'
 import NavBar from '../components/NavBar'
 import Hero from './Hero'
 import SideBar from './SideBar'
+import RecentProject from './RecentProject'
 
 
 const HomePage = () => {
@@ -21,6 +22,7 @@ const HomePage = () => {
     <MenuBox />
     <Service />
     <Projects />
+    <RecentProject/>
     <PageUp />
     <UI/>
     <Social />
