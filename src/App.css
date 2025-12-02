@@ -614,6 +614,9 @@ body{
 	justify-content: center;
 	align-items: center;
 }
+.service-container h2{
+	font-size: 50px;
+}
 }
 
 .project{
