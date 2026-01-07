@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../App.css'
-import { useScroll, useTransform } from 'framer-motion';
+import { useInView, useScroll, useTransform } from 'framer-motion';
 import { motion } from 'framer-motion';
-
 
 export default function Service() {
 
@@ -11,6 +10,7 @@ export default function Service() {
     target: container,
     effect: ["start start", "end end"]
   })
+
 
     const [fadeSlide, setFadeSlide] = useState(false);
 
@@ -42,6 +42,7 @@ export default function Service() {
 }
 
 const Service1 = ({scrollYProgress}) => {
+
 
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8])
     const rotate = useTransform(scrollYProgress, [0, 1], [0, -10])

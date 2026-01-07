@@ -218,6 +218,7 @@ body{
   padding: 20px;
   display: flex;
   gap: 10px;
+  animation: scaleUp 0.5s ease-in-out;
 }
 .hero-text h1{
 	margin: 0;
@@ -281,6 +282,14 @@ body{
 	width: 15px;
 	animation: shaking-icon3 1s ease-in-out infinite;
 	
+}
+@keyframes scaleUp {
+	from {
+		transform: scale(0.6);
+	}
+	to {
+		transform: scale(1);
+	}
 }
 @media only screen and (max-width: 768px){
 	.hero-text {
@@ -997,6 +1006,9 @@ padding: 20px 0;
 	border: 1px solid blue;
 	color: blue;
 }
+.socials p:hover a{
+	color: blue;
+}
 .socials p img{
 	width: 25px;
 	margin-right: 5px;
@@ -1022,6 +1034,7 @@ padding: 20px 0;
 	color: white;
 	text-decoration: none;
 	opacity: 0.8;
+	font-size: 15px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .mid-footer .footer-links a:hover{
@@ -1033,6 +1046,7 @@ padding: 20px 0;
 	justify-content: center;
 	align-items: center;
 	width: 50%;
+	font-size: 15px;
 }
 .mid-footer .my-info p{
 	opacity: 0.8;
@@ -1279,6 +1293,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	.ui-projects h1{
 	width: fit-content;
 	font-size: calc(30px + 0.5vw);
+	left: 30px;
 	}
 	.uidesigns{
 	position: absolute;
@@ -1381,7 +1396,7 @@ footer{
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	padding: 20px;
+	padding: 10px;
 	color: white;
 	background-color: black;
 	height: 32px;

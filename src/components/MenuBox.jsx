@@ -5,7 +5,7 @@ import about from '../assets/Images/about.png'
 import contact from '../assets/Images/contact-us.png'
 import services from '../assets/Images/services.png'
 import home from '../assets/Images/homeicon.png'
-import { delay, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const variants = {
 	open: {
@@ -26,7 +26,7 @@ const perspective = {
 	},
 	enter: {
 		opacity: 1,
-		transition: {delay: 1},
+		transition: 0.4
 	},
 	exit: {
 		opacity: 0
@@ -63,7 +63,6 @@ const MenuBox = () => {
 		>
 			<motion.div
 				variants={perspective}
-				transition={{delay: 1}}
 				animate="enter"
 				exit="exit"
 				initial="initial"

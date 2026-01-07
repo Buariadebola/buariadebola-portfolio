@@ -533,6 +533,12 @@ opacity: 1;
 .service-content2 img{
 	width: 90%;
 }
+.card-container:nth-child(2){
+	margin-top: 50px;
+}
+.card-container:nth-child(3){
+	margin-top: 100px;
+}
 @media only screen and (max-width: 768px){
 	.service-content2{
 		grid-template-columns: 1fr;

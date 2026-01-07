@@ -66,9 +66,8 @@ const ServicesPage = () => {
     <MenuBox/>
         <div className='service-content'>
           {services.map((service, index) => (
-            <div className="card-container">
+            <div key={index} className="card-container">
               <ServiceCard
-              key={index}
                 image={service.image}
                 header={service.header}
                 text={service.text}

@@ -10,7 +10,6 @@ const Hero = () => {
     section.scrollIntoView({ behavior: 'smooth'});
     };
 
-
   return (
     <div className='hero' id='hero'>
         <video className='hero-video' src={video} autoPlay muted loop></video>
